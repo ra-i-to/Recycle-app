@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Animated } from "react";
+import React, { useState } from "react";
 import {
   Dimensions,
   StyleSheet,
@@ -7,7 +7,7 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import { Button, withTheme } from "react-native-elements";
+import { Button} from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
 import createReturnMessage from "../functions/GarbageBranch";
@@ -15,7 +15,7 @@ import createReturnMessage from "../functions/GarbageBranch";
 function Chat(props) {
   const storage = props.screenProps;
 
-  const { width, height, scale } = Dimensions.get("window");
+  const { width, height } = Dimensions.get("window");
 
   const [inputMessage, setInputMessage] = useState("");
 
@@ -53,7 +53,6 @@ function Chat(props) {
     flg = false;
   }
 
-  const sleep = (msec) => new Promise((resolve) => setTimeout(resolve, msec));
   async function sendMessage(text) {
     if (text == "") {
       return 0;
@@ -385,23 +384,3 @@ function Chat(props) {
 }
 
 export default Chat;
-
-/*
-------------------------------------------------------------
-
-次すること
-
-・メッセージを送信時にメッセージを一番したのメッセージまで自動でスクロール
-	現在解決策なし　一旦保留
-
-・react native専用データベースを立てて、メッセージ内容を保存できるようにする
-	react native storageのインストールまでは完了
-	⭐️次回からその使用方法を調べながらチャット内容を保存できるようにする
-
-・Firebase
-・カメラの起動
-・設定画面作成
-・履歴画面作成
-
-
-*/

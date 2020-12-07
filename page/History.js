@@ -4,14 +4,13 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput,
   ScrollView,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Divider } from "react-native-elements";
 
 function History() {
-  const { width, height, scale } = Dimensions.get("window");
+  const { width } = Dimensions.get("window");
   const styles = StyleSheet.create({
     container: {
       flex: 1,
