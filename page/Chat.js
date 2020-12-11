@@ -231,7 +231,7 @@ function Chat(props) {
               });
               const response = await fetch(
                 "https://vision.googleapis.com/v1/images:annotate?key=" +
-                  "AIzaSyBg9AI4vwNclLvRHq8HVRVgdAd1y5DsktE",
+                  "---",
                 {
                   headers: {
                     Accept: "application/json",
