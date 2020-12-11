@@ -217,6 +217,35 @@ function Chat(props) {
     },
   });
 
+  async function testFunc() {
+    const image = require('../assets/test.jpg');
+                const body = JSON.stringify({
+                requests: [
+                  {
+                    features: [{ type: "TEXT_DETECTION", maxResults: 1 }],
+                    photo: {
+                      content: image
+                    }
+                  }
+                ]
+              });
+              const response = await fetch(
+                "https://vision.googleapis.com/v1/images:annotate?key=" +
+                  "AIzaSyBg9AI4vwNclLvRHq8HVRVgdAd1y5DsktE",
+                {
+                  headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                  },
+                  method: "POST",
+                  body: body
+                }
+              );
+              const resJson = await response.json();
+              console.log(resJson);
+              // console.log(resJson.responses[0].textAnnotations[0].description);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonGroup}>
@@ -275,13 +304,14 @@ function Chat(props) {
               title="Reset"
               type="outline"
               onPress={() => {
-                storage.save({
-                  key: "messages",
-                  data: [],
-                });
-                storage.load({ key: "messages" }).then((res) => {
-                  setMessages(res);
-                });
+                // storage.save({
+                //   key: "messages",
+                //   data: [],
+                // });
+                // storage.load({ key: "messages" }).then((res) => {
+                //   setMessages(res);
+                // });
+                testFunc();
               }}
             />
             <ScrollView>
