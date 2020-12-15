@@ -216,7 +216,8 @@ function Chat(props) {
       // transform: [{ translateY: -5 }],
     },
   });
-
+//Cloud Vision Test
+//-------------------------------------------------------------------------------------------------
   async function testFunc() {
     const image = require('../assets/test.jpg');
                 const body = JSON.stringify({
