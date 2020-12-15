@@ -6,6 +6,8 @@ export default function Photography(props) {
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraRef, setCameraRef] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+  const [photo, setPhoto] = useState();
+  const [resText, setResText] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -48,18 +50,46 @@ export default function Photography(props) {
               );
             }}
           >
-            <Text style={{ fontSize: 18, marginBottom: 10, color: "white" }}>
+            <Text style={{ fontSize: 18, marginBottom: 10,marginRight: 10, color: "white" }}>
               {" "}
               Flip{" "}
             </Text>
           </TouchableOpacity>
+          <Text style={{fontSize: 18, position: "absolute", top: 100, zIndex: 100, textAlign: "center", color: "white"}}>
+{resText}
+          </Text>
           <TouchableOpacity
             style={{ alignSelf: "center" }}
             onPress={async () => {
               if (cameraRef) {
-                let photo = await cameraRef.takePictureAsync();
-                console.log("photo", photo);
-                props.navigation.navigate("判定");
+                // photo = await cameraRef.takePictureAsync();
+                const options = { quality: 0.5, base64: true, skipProcessing: true, forceUpOrientation: true };
+                setPhoto(await cameraRef.takePictureAsync(options));
+                const body = JSON.stringify({
+                requests: [
+                  {
+                    features: [{ type: "TEXT_DETECTION", maxResults: 1 }],
+                    photo: {
+                      content: photo
+                    }
+                  }
+                ]
+              });
+              const response = await fetch(
+                "https://vision.googleapis.com/v1/images:annotate?key=" +
+                  "AIzaSyBg9AI4vwNclLvRHq8HVRVgdAd1y5DsktE",
+                {
+                  headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                  },
+                  method: "POST",
+                  body: body
+                }
+              );
+              const resJson = await response.json();
+              setResText(resJson.responses[0].textAnnotations[0].description);
+                //props.navigation.navigate("判定");
               }
             }}
           >
