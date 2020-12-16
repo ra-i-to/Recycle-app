@@ -1,15 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dimensions,
   StyleSheet,
   Text,
   View,
   ScrollView,
-} from "react-native";
+} 
+from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Divider } from "react-native-elements";
 
-function History() {
+function History(props) {
+  const storage = props.screenProps;
+
+  const [historyData, setHistoryData] = useState([]);
+  let tmp = [];
+  // let historyData = [];
+  let flg = true;
+  useEffect(() => {
+    if (flg) {
+      storage
+        .load({ key: "messages" })
+        .then((res) => {
+          console.log(res);
+          const messages = res;
+          console.log(messages.length);
+          let i, j, a, q, date;
+          j = 0;
+          for(i = 0; i < messages.length; i++) {
+            if(i % 2 == 0) {
+              q = messages[i].text;
+              //日付データの加工
+              date = messages[i].createAt;
+              date = date.split('T')[0];
+              date = date.split('-');
+              date = date[0]+"年"+date[1]+"月"+date[2]+"日";
+              console.log(date);
+            }else {
+              a = messages[i].text;
+              if(a=="何もマッチしなかった場合のメッセージ"){
+                continue;
+              }
+              tmp[j] = {
+                id: j,
+                q: q,
+                a: a,
+                date: date,
+              };
+            }
+            if(i % 2 != 0) {
+              j++;
+            }
+          }
+          console.log(tmp);
+          setHistoryData(tmp);
+        })
+        .catch((err) => console.warn(err));
+      flg = false;
+    }
+  },[])
+  
+  
   const { width } = Dimensions.get("window");
   const styles = StyleSheet.create({
     container: {
@@ -62,14 +113,16 @@ function History() {
       }}
     >
       <ScrollView>
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>瓶の捨て方教えて</Text>
-          <Text style={styles.dateText}>2020年11月10日　9:24</Text>
+        {historyData.reverse().map((data) => (
+          <View style={styles.card}>
+          <Text style={styles.cardTitle}>{data.q}</Text>
+          <Text style={styles.dateText}>{data.date}</Text>
           <Divider style={styles.divider} />
           <Text style={styles.p}>
-            黄コンテナは、入れることができるびんの色により、「無色」「茶色」「青・黒・緑等」の3種類に分かれています
+          {data.a}
           </Text>
         </View>
+        ))}
       </ScrollView>
     </LinearGradient>
   );
