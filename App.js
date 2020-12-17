@@ -10,6 +10,7 @@ import AreaSetting from "./page/AreaSetting";
 import PrivacyPolicy from "./page/PrivacyPolicy";
 import Technology from "./page/Technology";
 import Help from "./page/Help";
+import SortingMethod from "./page/SortingMethod";
 import Storage from "react-native-storage";
 import AsyncStorage from "@react-native-community/async-storage";
 
@@ -23,6 +24,7 @@ const MainStack = createStackNavigator({
   プライバシーポリシー: PrivacyPolicy,
   使用技術: Technology,
   ヘルプ: Help,
+  ゴミの出し方: SortingMethod,
 });
 
 const storage = new Storage({

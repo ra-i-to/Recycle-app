@@ -73,6 +73,16 @@ function Settings(props) {
           props.navigation.navigate("使用技術");
         }}
       />
+      <Button
+        type="clear"
+        icon={{ name: "laptop", color: "rgb(110,110,110)" }}
+        title="ゴミの出し方"
+        style={styles.button}
+        titleStyle={{ color: "rgb(110,110,110)", fontWeight: "bold" }}
+        onPress={() => {
+          props.navigation.navigate("ゴミの出し方");
+        }}
+      />
     </LinearGradient>
   );
 }
