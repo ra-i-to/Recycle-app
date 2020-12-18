@@ -83,21 +83,27 @@ function OversizedGarbage() {
         戸別収集の場合は収集手数料が必要です。
     　</Text>
     　<Text style={styles.normalText}>
-        インターネット受付（２４時間受付）
-        <Button 
-          title="インターネット受付（２４時間受付）"
+        インターネット受付（２４時間受付）{"\n"}
+        <Button
+          style={
+            {
+                padding: 8,
+            }
+          }
+          title="粗大ごみインターネット受付"
           type="clear"
           onPress={() => {
-            const url = "https://qiita.com/Horie1024/items/3f672e04720bbc043760";
+            const url = "https://sodai.city.okayama.jp/eco/view/top.html";
             Linking.canOpenURL(url).then(supported => {
-  if (!supported) {
-    console.log('無効なURLです: ' + url);
-  } else {
-    return Linking.openURL(url);
-  }
-}).catch(err => console.error('URLを開けませんでした。', err));
+              if (!supported) {
+                console.log('無効なURLです: ' + url);
+              } else {
+                return Linking.openURL(url);
+              }
+            }).catch(err => console.error('URLを開けませんでした。', err));
           }}
         />
+        {"\n"}ただし、戸別回収の場合は、２回目以降の予約から利用できます。
     　</Text>
     </View>
     

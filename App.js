@@ -12,6 +12,8 @@ import Technology from "./page/Technology";
 import Help from "./page/Help";
 import SortingMethod from "./page/SortingMethod";
 import OversizedGarbage from "./page/OversizedGarbage";
+import UnburnableGarbage from "./page/UnburnableGarbage";
+import BurnableGarbage from "./page/BurnableGarbage";
 import Storage from "react-native-storage";
 import AsyncStorage from "@react-native-community/async-storage";
 
@@ -27,6 +29,8 @@ const MainStack = createStackNavigator({
   ヘルプ: Help,
   ゴミの出し方: SortingMethod,
   粗大ごみ: OversizedGarbage,
+  可燃ごみ: BurnableGarbage,
+  不燃ごみ: UnburnableGarbage
 });
 
 const storage = new Storage({

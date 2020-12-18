@@ -35,27 +35,27 @@ function SortingMethod(props) {
     >
       <Button
         type="clear"
-        icon={{ name: "settings", color: "rgb(110,110,110)" }}
+        
         title="可燃ごみ"
         style={styles.button}
         titleStyle={{ color: "rgb(110,110,110)", fontWeight: "bold" }}
         onPress={() => {
-          props.navigation.navigate("地域設定");
+          props.navigation.navigate("可燃ごみ");
         }}
       />
       <Button
         type="clear"
-        icon={{ name: "help", color: "rgb(110,110,110)" }}
+        
         title="不燃ごみ"
         style={styles.button}
         titleStyle={{ color: "rgb(110,110,110)", fontWeight: "bold" }}
         onPress={() => {
-          props.navigation.navigate("ヘルプ");
+          props.navigation.navigate("不燃ごみ");
         }}
       />
       <Button
         type="clear"
-        icon={{ name: "lock", color: "rgb(110,110,110)" }}
+
         title="粗大ごみ"
         style={styles.button}
         titleStyle={{ color: "rgb(110,110,110)", fontWeight: "bold" }}
