@@ -20,7 +20,7 @@ function BurnableGarbage() {
       height: "auto",
       marginTop: 20,
       marginLeft: "5%",
-      marginright: "5%",
+      marginRight: "5%",
       marginBottom: 40,
       backgroundColor: "white",
       padding: 20,
@@ -63,6 +63,7 @@ function BurnableGarbage() {
         paddingTop: 32,
       }}
     >
+    <ScrollView>
       <View style={styles.whiteBack}>
       <Text style={styles.headerText1}>主なもの</Text>
       <Text style={styles.normalText}>生ごみ、プラスチック製品、汚れのひどい古布・古紙、発泡スチロール、生理用品、剪定枝、雑草など</Text>
@@ -76,6 +77,7 @@ function BurnableGarbage() {
       <Text style={styles.normalText}>●枝は、長さ６０cm以下、直径１２cm以下に切って片手で持てる程度の重さで束ねてください。</Text>
       <Text style={styles.normalText}>●枯れ葉・落ち葉、庭に生えた雑草は土を取って、透明もしくは半透明の袋に入れて出してください。</Text>
      </View>
+     </ScrollView>
     </LinearGradient>
   );
 }

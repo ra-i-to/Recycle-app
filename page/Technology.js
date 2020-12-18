@@ -19,7 +19,7 @@ function Technology() {
       height: "auto",
       marginTop: 20,
       marginLeft: "5%",
-      marginright: "5%",
+      marginRight: "5%",
       marginBottom: 40,
       backgroundColor: "white",
       padding: 20,
@@ -55,6 +55,7 @@ function Technology() {
         paddingTop: 32,
       }}
     >
+    <ScrollView>
       <View style={styles.whiteBack}>
       <Text style={styles.headerText}>フロントエンド</Text>
       <Text style={styles.normalText}>React Native</Text>
@@ -67,6 +68,7 @@ function Technology() {
       <Text style={styles.headerText}>その他</Text>
       <Text style={styles.normalText}>Google Cloud Vision(ML Kit)</Text>
     </View>
+    </ScrollView>
     </LinearGradient>
   );
 }

@@ -19,7 +19,7 @@ function UnburnableGarbage() {
       height: "auto",
       marginTop: 20,
       marginLeft: "5%",
-      marginright: "5%",
+      marginRight: "5%",
       marginBottom: 40,
       backgroundColor: "white",
       padding: 20,
@@ -62,6 +62,7 @@ function UnburnableGarbage() {
         paddingTop: 32,
       }}
     >
+    <ScrollView>
     <View style={styles.whiteBack}>
       <Text style={styles.headerText1}>主なもの</Text>
       <Text style={styles.normalText}>金属類、ガラス・陶磁器類、汚れた缶、汚れたびん</Text>
@@ -71,6 +72,7 @@ function UnburnableGarbage() {
       <Text style={styles.normalText}>● 岡山市有料指定袋に入れて出してください。</Text>
       <Text style={styles.normalText}>● 不燃ごみの大きさの目安は、18リットル缶より小さいものです。(45リットルの有料指定袋に入るものが、不燃ごみになるとは限りません。)</Text>
     </View>
+    </ScrollView>
     </LinearGradient>
   );
 }

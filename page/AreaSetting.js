@@ -26,7 +26,10 @@ function AreaSetting() {
         flex: 1,
         paddingTop: 32,
       }}
-    ></LinearGradient>
+    >
+    <ScrollView>
+      </ScrollView>
+    </LinearGradient>
   );
 }
 

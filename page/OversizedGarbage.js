@@ -20,7 +20,7 @@ function OversizedGarbage() {
       height: "auto",
       marginTop: 20,
       marginLeft: "5%",
-      marginright: "5%",
+      marginRight: "5%",
       marginBottom: 40,
       backgroundColor: "white",
       padding: 20,
@@ -63,6 +63,7 @@ function OversizedGarbage() {
         paddingTop: 32,
       }}
     >
+    <ScrollView>
     <View style={styles.whiteBack}>
       <Text style={styles.headerText1}>主なもの</Text>
       <Text style={styles.normalText}>１８リットル缶以上のもの</Text>
@@ -70,21 +71,23 @@ function OversizedGarbage() {
       <Text style={styles.headerText2}>出し方</Text>
       <Text style={styles.normalText}>
         ご自身で市有施設へ持込む、市の戸別収集がありますが。どちらも必ず事前の予約が必要です。{"\n"}
-    　</Text>
+    </Text>
       <Text style={styles.normalText}>
         事前に粗大ごみ受付センター（０８０－２２７－５３００）にて予約を行ってください。
         受付時間　９：００～１６：００（月～金曜日、年末年始を除く祝日を含みます。）{"\n"}
-    　</Text>
-    　<Text style={styles.normalText}>
+      </Text>
+    <Text style={styles.normalText}>
         持込みの場合は無料です。{"\n"}
-    　</Text>
-    　<Text style={styles.normalText}>
+    </Text>
+    <Text style={styles.normalText}>
         持込み施設：東部リサイクルプラザ・西部リサイクルプラザ{"\n"}
         戸別収集の場合は収集手数料が必要です。
-    　</Text>
-    　<Text style={styles.normalText}>
+    </Text>
+    <Text style={styles.normalText}>
         インターネット受付（２４時間受付）{"\n"}
-        <Button
+        {"\n"}ただし、戸別回収の場合は、２回目以降の予約から利用できます。
+    </Text>
+    <Button
           style={
             {
                 padding: 8,
@@ -103,10 +106,8 @@ function OversizedGarbage() {
             }).catch(err => console.error('URLを開けませんでした。', err));
           }}
         />
-        {"\n"}ただし、戸別回収の場合は、２回目以降の予約から利用できます。
-    　</Text>
     </View>
-    
+    </ScrollView>
     </LinearGradient>
   );
 }

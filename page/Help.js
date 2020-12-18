@@ -19,7 +19,7 @@ function Help() {
       height: "auto",
       marginTop: 20,
       marginLeft: "5%",
-      marginright: "5%",
+      marginRight: "5%",
       marginBottom: 40,
       backgroundColor: "white",
       padding: 20,
@@ -55,6 +55,7 @@ function Help() {
         paddingTop: 32,
       }}
     >
+    <ScrollView>
     <View style={styles.whiteBack}>
       <Text style={styles.headerText}>アプリの使い方</Text>
       <Text style={styles.normalText}>使用方法１{"\n"}撮影ボタンを押すと、写真を撮影し、ごみの判定を行います。</Text>
@@ -62,6 +63,7 @@ function Help() {
       <Text style={styles.normalText}>使用方法３{"\n"}設定ボタンを押すと、地域設定や技術情報が見ることができます。</Text>
       <Text style={styles.normalText}>使用方法４{"\n"}画面下の入力フォームに調べたいごみの名称を入力し、送信ボタンを押すとチャット形式でゴミの情報を確認できます。</Text>
     </View>
+    </ScrollView>
     </LinearGradient>
   );
 }
