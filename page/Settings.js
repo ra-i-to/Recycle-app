@@ -75,7 +75,7 @@ function Settings(props) {
       />
       <Button
         type="clear"
-        icon={{ name: "laptop", color: "rgb(110,110,110)" }}
+        icon={{ name: "book", color: "rgb(110,110,110)" }}
         title="ゴミの出し方"
         style={styles.button}
         titleStyle={{ color: "rgb(110,110,110)", fontWeight: "bold" }}

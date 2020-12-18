@@ -11,6 +11,7 @@ import PrivacyPolicy from "./page/PrivacyPolicy";
 import Technology from "./page/Technology";
 import Help from "./page/Help";
 import SortingMethod from "./page/SortingMethod";
+import OversizedGarbage from "./page/OversizedGarbage";
 import Storage from "react-native-storage";
 import AsyncStorage from "@react-native-community/async-storage";
 
@@ -25,6 +26,7 @@ const MainStack = createStackNavigator({
   使用技術: Technology,
   ヘルプ: Help,
   ゴミの出し方: SortingMethod,
+  粗大ごみ: OversizedGarbage,
 });
 
 const storage = new Storage({
