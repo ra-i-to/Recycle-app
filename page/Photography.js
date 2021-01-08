@@ -58,7 +58,6 @@ export default function Photography(props) {
             onPress={async () => {
               if (cameraRef) {
                 let photo = await cameraRef.takePictureAsync();
-                console.log("photo", photo);
                 props.navigation.navigate("判定");
               }
             }}
