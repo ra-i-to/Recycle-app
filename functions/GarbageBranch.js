@@ -2875,7 +2875,7 @@ export default function createReturnMessage(message) {
       break;
     //なにもマッチしなかった場合
     default:
-      returnMessage = "何もマッチしなかった場合のメッセージ";
+      returnMessage = "メッセージが正しくありません。\nもう一度入力してください";
       break;
   }
   return returnMessage;
