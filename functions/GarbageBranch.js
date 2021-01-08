@@ -2,13 +2,121 @@ export default function createReturnMessage(message) {
   let returnMessage = "";
 
   switch (true) {
-    //あ行のゴミ
-    case /IHクッキングヒーター/.test(message):
-    case /ガスコンロ/.test(message):
-    case /ヒーター/.test(message):
+    //優先順位
+    //空き缶
+    case /消臭スプレーの空き缶/.test(message):
       returnMessage =
-        "IHクッキングヒーターの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:500円\n\n【ガスコンロ】\n分別:不燃ごみ\n\n【オイルヒーター】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円";
+        "消臭スプレー空き缶の分別方法\n\n分別:資源化物\n空き缶の出し方参照";
       break;
+
+    case /塗料空き缶/.test(message):
+    case /ペンキの空き缶/.test(message):
+    case /ペンキ缶/.test(message):
+      returnMessage = "塗料空き缶の分別方法\n\n分別:不燃ごみ";
+      break;
+
+    case /塗料スプレー空き缶/.test(message):
+    case /スプレー缶/.test(message):
+      returnMessage =
+        "塗料スプレー空き缶の分別方法\n\n分別:資源化物\n使い切って、穴を開ける 空き缶の出し方参照 https://www.city.okayama.jp/kurashi/0000005251.html";
+      break;
+    //き行
+    case /木屑/.test(message):
+    case /木くず/.test(message):
+    case /おがくず/.test(message):
+      returnMessage = "分別:可燃ごみ\n有料袋に入れる";
+      break;
+
+    case /給油ポンプ/.test(message):
+      returnMessage =
+        "給油ポンプの分別方法\n\n【給油ポンプ（電動式）】\n分別:小型家電\n電池は資源化物\n\n【給油ポンプ（手動式）】\n分別:可燃ごみ";
+      break;
+    case /鏡台/.test(message):
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
+      break;
+
+    //く行
+    case /車いす/.test(message):
+    case /車椅子/.test(message):
+      returnMessage = "分別:粗大ごみ\n一般家庭から出るもの";
+      break;
+    //け行
+    case /げた箱/.test(message):
+    case /下駄箱/.test(message):
+    case /げたばこ/.test(message):
+      returnMessage =
+        "げた箱の分別方法\n\n【げた箱（60cm以下）】\n分別:粗大ごみ \n持ち込み:無料  戸別収集手数料:200円　\n\n【げた箱（60cm超）】\n分別:粗大ごみ \n持ち込み:無料  戸別収集手数料:500円";
+      break;
+
+    //し行
+    case /CDラジカセ/.test(message):
+      returnMessage =
+        "CDラジカセの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大 200円";
+      break;
+
+    case /CDプレイヤー/.test(message):
+      returnMessage =
+        "CDプレイヤーの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大 200円";
+      break;
+
+    //の行
+
+    case /農薬/.test(message):
+      returnMessage =
+        "農薬の分別方法\n \n分別:出せないごみ \n出し方: 販売店か、取扱店へ相談 ";
+      break;
+
+    case /海苔の空きびん/.test(message):
+    case /のりの空きびん/.test(message):
+    case /海苔の空きびん/.test(message):
+    case /海苔の空き瓶/.test(message):
+    case /海苔の空きビン/.test(message):
+      returnMessage =
+        "海苔の空きびんの分別方法\n \n分別:資源化物 \n出し方: プラスチック製のふたは可燃ごみで出して、金属製のふたは不燃ごみで出してください ";
+      break;
+
+    //ひ行
+
+    case /Pタイル/.test(message):
+    case /プラスチックタイル/.test(message):
+      returnMessage = "プラスチックタイルの分別方法\n\n分別:可燃ごみ";
+      break;
+
+    case /ピクニックテーブル/.test(message):
+      returnMessage =
+        "ピクニックテーブルの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円";
+      break;
+    //ふ行
+    case /風呂ふた/.test(message):
+    case /風呂蓋/.test(message):
+      returnMessage =
+        "風呂ふたの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円\n\n【風呂マット 60cm以下】\n分別:可燃ごみ\n\n【風呂マット 60cm超180cm以下】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円";
+      break;
+
+    //ホ行
+    case /ポリタンク/.test(message):
+    case /ポリバケツ/.test(message):
+    case /ポリ容器/.test(message):
+      returnMessage =
+        "ポリバケツの分別方法\n\n【18ℓ缶未満】\n分別:可燃ごみ\n\n【18ℓ缶以上】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円";
+      break;
+
+    //み行
+    case /水枕/.test(message):
+    case /氷枕/.test(message):
+      returnMessage = "水枕（氷枕）の分別方法\n\n分別:可燃ごみ:ゴム製品";
+      break;
+    //ロ行
+    case /老眼鏡/.test(message):
+      returnMessage =
+        "老眼鏡の分別方法\n\n【老眼鏡 プラスチック製】\n分別:可燃ごみ\n\n【老眼鏡 金属製＋ガラス】\n分別:不燃ごみ";
+      break;
+
+    //わ行
+    case /ワイヤーハンガー/.test(message):
+      returnMessage = "ワイヤーハンガーの分別方法\n \n分別:不燃ごみ";
+      break;
+    //あ行のゴミ
 
     case /アイロン/.test(message):
       returnMessage =
@@ -30,24 +138,9 @@ export default function createReturnMessage(message) {
       break;
 
     case /網戸/.test(message):
-case /あみど/.test(message):
+    case /あみど/.test(message):
       returnMessage =
         "網戸の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円\n\n【網戸の枠】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円\n\n【網戸の網（ナイロン製）】\n分別:可燃ごみ";
-      break;
-
-    
-
-
-    case /瓶/.test(message):
-    case /ビン/.test(message):
-    case /酒びん/.test(message):
-      returnMessage =
-        "空き瓶の分別方法\n\n【食油】\n分別:不燃ごみ\n中身がない状態にして出す　※資源にはならない\n\n【化粧品】\n分別:資源化物\n出し方:\n乳白色のものは不燃\n\n【食料品】\n分別:資源化物\n出し方:\nウイスキーの瓶、梅酒の瓶、インスタントコーヒーの瓶なども該当します。日本酒などの瓶はできるだけ買ったお店に返してください\n\n【劇薬】\n分別:不燃ごみ\n中身が無い状態にして出す ※資源にはならない\n\n【酒びん(日本酒)】\n分別:資源化物\n販売店に返す 資源化物ステーションにも出せます";
-      break;
-
-    case /油/.test(message):
-      returnMessage =
-        "油の分別方法\n\n【機械用】\n分別:出せないごみ\n販売店に相談\n\n【食用(使用済)】\n分別:資源化物\n出し方:\nこして冷ました後、ペットボトルに入れキャップをしっかり締め、てんぷら油回収容器に立てて入れる\n\n【食用(未使用・未開封・賞味期限切れ等)】\n分別:資源化物\n出し方:\n缶やポリ容器の油は、開封せずそのまま出してください\n\n【食用(凝固剤で固めたもの)】\n分別:可燃ごみ";
       break;
 
     case /アルミ/.test(message):
@@ -62,7 +155,7 @@ case /あみど/.test(message):
 
     //い行
     case /イーゼル/.test(message):
-case /画架/.test(message):
+    case /画架/.test(message):
       returnMessage =
         "イーゼルの分別方法\n\n分別:粗大ごみ\n持ち込み:無料 \n 戸別収集手数料:粗大ごみ受付センターで金額などを確認してください";
       break;
@@ -92,7 +185,6 @@ case /画架/.test(message):
         "一輪車の分別方法\n\n分別:粗大ごみ\n持ち込み:無料 \n戸別収集手数料:200円\n\n【運搬用一輪車（ねこ車）】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円";
       break;
 
-    
     case /イヤリング/.test(message):
       returnMessage = "イヤリングの分別方法\n\n分別:不燃ごみ";
       break;
@@ -108,13 +200,11 @@ case /画架/.test(message):
       break;
 
     case /印判/.test(message):
-case /判子/.test(message):
-case /印鑑/.test(message):
-case /押印/.test(message):
+    case /判子/.test(message):
+    case /印鑑/.test(message):
+    case /押印/.test(message):
       returnMessage = "印判（金属製以外）の分別方法\n\n分別:可燃ごみ";
       break;
-
-    
 
     //ウ行
 
@@ -140,7 +230,6 @@ case /押印/.test(message):
       returnMessage = "浮き輪の分別方法\n\n分別:可燃ごみ";
       break;
 
-    
     case /ウレタン/.test(message):
       returnMessage = "ウレタンの分別方法\n\n分別:可燃ごみ";
       break;
@@ -177,8 +266,7 @@ case /押印/.test(message):
       break;
 
     case /LPGタンク/.test(message):
-      returnMessage =
-        "LPGタンクの分別方法\n\n分別:出せないごみ\n販売店に相談";
+      returnMessage = "LPGタンクの分別方法\n\n分別:出せないごみ\n販売店に相談";
       break;
 
     case /園芸支柱/.test(message):
@@ -209,16 +297,13 @@ case /押印/.test(message):
       break;
 
     case /オートバイ/.test(message):
-      returnMessage =
-        "オートバイの分別方法\n\n分別:出せないごみ\n販売店に相談";
+      returnMessage = "オートバイの分別方法\n\n分別:出せないごみ\n販売店に相談";
       break;
 
     case /オーブン/.test(message):
       returnMessage =
         "オーブンの分別方法\n\n【18ℓ缶未満】分別:小型家電\n\n【18ℓ缶以上】\n分別:粗大ごみ\n\n【オーブンレンジ】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円";
       break;
-
- 
 
     case /桶/.test(message):
     case /おけ/.test(message):
@@ -275,11 +360,6 @@ case /押印/.test(message):
       break;
 
     //か行
-    case /カーテン/.test(message):
-      returnMessage =
-        "カーテンの分別方法\n\n【カーテン】\n分別:資源化物\n出し方:\nああ\n\n【カーテン（レース）】\n分別:資源化物\n出し方:\nあとで\n\n【アコーディオンカーテン（レール込み）】\n分別:粗大ゴミ\n出し方:\nあとで";
-      break;
-
     case /カーテンレール/.test(message):
     case /カーテンのレール/.test(message):
       returnMessage = "持ち込み:無料  戸別収集手数料:200円（4本まで）";
@@ -289,7 +369,7 @@ case /押印/.test(message):
       returnMessage = "分別:小型家電";
       break;
 
-    case /カーペット/.test(message):
+    //case /カーペット/.test(message):
     case /じゅうたん/.test(message):
     case /絨毯/.test(message):
       returnMessage = "持ち込み:無料  戸別収集手数料:200円";
@@ -303,13 +383,6 @@ case /押印/.test(message):
     case /カイロ/.test(message):
     case /かいろ/.test(message):
       returnMessage = "分別:不燃ごみ";
-      break;
-
-    case /鏡/.test(message):
-    case /ミラー/.test(message):
-　case /手鏡/.test(message):
-      returnMessage =
-        "鏡の分別方法\n\n【鏡（鏡台用）】\n分別:粗大ごみ\n出し方:\n保留\n\n【手鏡】\n分別:不燃ごみ\n出し方:\n保留\n\n【アコーディオンカーテン（レール込み）】\n分別:粗大ゴミ\n出し方:\n保留";
       break;
 
     case /鍵/.test(message):
@@ -342,13 +415,11 @@ case /押印/.test(message):
       break;
 
     case /ガスストーブ/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
       break;
 
     case /ガステーブル/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
       break;
 
     case /ガスボンベ/.test(message):
@@ -360,13 +431,11 @@ case /押印/.test(message):
     case /ガス湯沸かし器/.test(message):
     case /ガス湯沸し器/.test(message):
     case /ガス湯わかし器/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
       break;
 
     case /ガスレンジ/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
       break;
 
     case /カセットテープ/.test(message):
@@ -390,8 +459,7 @@ case /押印/.test(message):
 
     case /楽器ケース/.test(message):
     case /楽器入れ/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円\n\n";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円\n\n";
       break;
 
     case /カッター/.test(message):
@@ -426,8 +494,8 @@ case /押印/.test(message):
     case /かばん/.test(message):
     case /カバン/.test(message):
     case /バッグ/.test(message):
-　case /大型バッグ/.test(message):
-　case /旅行かばん/.test(message):
+    case /大型バッグ/.test(message):
+    case /旅行かばん/.test(message):
     case /旅行カバン/.test(message):
     case /旅行鞄/.test(message):
     case /ハンドバッグ/.test(message):
@@ -463,12 +531,10 @@ case /押印/.test(message):
     case /カメラ/.test(message):
     case /かめら/.test(message):
     case /インスタントカメラ/.test(message):
- case /ビデオカメラ/.test(message):
+    case /ビデオカメラ/.test(message):
       returnMessage =
         "カメラの分別方法\n\n【カメラ（使い捨て以外）】\n分別:小型家電\n\n【カメラ（使い捨て）】\n分別:可燃ごみ\n\n【インスタントカメラ】\n分別:可燃ごみ\n使い捨て\n\n【ビデオカメラ】分別:小型家電\n協力店舗・市有施設等に持ち込む。";
       break;
-
-  
 
     case /蚊帳/.test(message):
     case /かや/.test(message):
@@ -476,18 +542,11 @@ case /押印/.test(message):
       break;
 
     case /カラーボックス/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
       break;
 
     case /カラオケセット/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:1500円";
-      break;
-
-    case /ガラス/.test(message):
-      returnMessage =
-        "ガラスの分別方法\n\n【ガラスくず】\n分別:不燃ごみ\n出し方:\n新聞紙等で包み、「危険」と書いてだす\n\n【ガラス食器】\n分別:不燃ごみ\n出し方:\n新聞紙等で包む\n\n【ガラス戸】\n分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:1500円";
       break;
 
     case /枯れ葉/.test(message):
@@ -506,11 +565,10 @@ case /押印/.test(message):
       returnMessage = "分別:不燃ごみ\n透明または半透明の袋に入れて出す";
       break;
 
-        case /殺虫スプレーの空き缶/.test(message):
+    case /殺虫スプレーの空き缶/.test(message):
     case /さびた缶/.test(message):
-case /缶/.test(message):
-case /カン/.test(message):
-
+    case /缶/.test(message):
+    case /カン/.test(message):
       returnMessage =
         "缶の分別方法\n\n【食油缶（18ℓ缶未満）】\n分別:不燃ごみ\n中身がない状態にして出す　※資源にはならない\n\n【缶詰（ペットフード含む）】\n分別:資源化物\n出し方:\nきれいに洗って出してください。フタも資源化物\n\n【飲料水】\n分別:資源化物\n\n【スプレー缶】\n分別:資源化物\n出し方:\n穴をあけて中身が無い状態でだす\n\n【塗料】\n分別:不燃ゴミ\n18ℓ缶未満　中身がない状態にしてだす\n\n【オイル缶（18ℓ缶未満）】\n分別:不燃ごみ\n中身がない状態にして出す\n\n【殺虫スプレーの空き缶】\n分別:資源化物\n空き缶の出し方参照\n\n【さびた缶】\n分別:不燃ごみ";
       break;
@@ -532,12 +590,6 @@ case /カン/.test(message):
         "キーボードの分別方法\n\n【キーボード（楽器）】\n分別:粗大ごみ\n出し方:\n持ち込み:無料  戸別収集手数料:1000円\n\n【キーボード（パソコン）】\n分別:小型家電";
       break;
 
-    case /木屑/.test(message):
-    case /木くず/.test(message):
-    case /おがくず/.test(message):
-      returnMessage = "分別:可燃ごみ\n有料袋に入れる";
-      break;
-
     case /着物/.test(message):
     case /きもの/.test(message):
       returnMessage = "分別:資源化物";
@@ -557,16 +609,6 @@ case /カン/.test(message):
     case /急須/.test(message):
     case /きゅうす/.test(message):
       returnMessage = "分別:不燃ごみ";
-      break;
-
-    case /給油ポンプ/.test(message):
-      returnMessage =
-        "給油ポンプの分別方法\n\n【給油ポンプ（電動式）】\n分別:小型家電\n電池は資源化物\n\n【給油ポンプ（手動式）】\n分別:可燃ごみ";
-      break;
-
-    case /鏡台/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
       break;
 
     case /金庫/.test(message):
@@ -596,13 +638,12 @@ case /カン/.test(message):
       break;
 
     case /草刈り機/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
       break;
 
     case /薬/.test(message):
     case /劇薬/.test(message):
-     returnMessage =
+      returnMessage =
         "薬類の分別方法\n\n【薬】\n分別:可燃ごみ\n【劇薬】\n分別:出せないごみ\n販売店に相談";
       break;
 
@@ -611,30 +652,17 @@ case /カン/.test(message):
         "口紅の分別方法\n\n【口紅（金属）】\n分別:不燃ごみ　\n\n【口紅（プラスチック）】\n分別:可燃ごみ";
       break;
 
-    case /靴/.test(message):
-    case /くつ/.test(message):
-    case /シューズ/.test(message):
-      returnMessage =
-        "靴類の分別方法\n\n【靴（革・布・ナイロン・合成皮革）】\n分別:可燃ごみ\n【安全靴】\n分別:可燃ごみ \n\n【運動靴】\n分別:可燃ごみ";
-      break;
-
     case /靴下/.test(message):
     case /くつした/.test(message):
       returnMessage = "分別:資源化物\n古布（ペアのもの）";
       break;
 
     case /クッキングヒーター/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
       break;
 
     case /クッション/.test(message):
       returnMessage = "分別:可燃ごみ\n18ℓ缶以上は粗大";
-      break;
-
-    case /車いす/.test(message):
-    case /車椅子/.test(message):
-      returnMessage = "分別:粗大ごみ\n一般家庭から出るもの";
       break;
 
     case /クレパス/.test(message):
@@ -663,13 +691,6 @@ case /カン/.test(message):
       returnMessage = "分別:可燃ごみ";
       break;
 
-    case /げた箱/.test(message):
-    case /下駄箱/.test(message):
-    case /げたばこ/.test(message):
-      returnMessage =
-        "げた箱の分別方法\n\n【げた箱（60cm以下）】\n分別:粗大ごみ \n持ち込み:無料  戸別収集手数料:200円　\n\n【げた箱（60cm超）】\n分別:粗大ごみ \n持ち込み:無料  戸別収集手数料:500円";
-      break;
-
     case /血圧計/.test(message):
       returnMessage =
         "血圧計の分別方法\n\n【血圧計（電池式）】\n分別:小型家電\n電子・電池式　\n\n【血圧計（水銀含む）】\n分別:資源化物\n水銀入りの体温計に準じて扱う。廃乾電池、体温計の出し方を参照";
@@ -681,8 +702,7 @@ case /カン/.test(message):
       break;
 
     case /健康器具/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
       break;
 
     case /剣山/.test(message):
@@ -714,11 +734,6 @@ case /カン/.test(message):
       returnMessage = "分別:可燃ごみ";
       break;
 
-    case /コード/.test(message):
-      returnMessage =
-        "コード・コードリールの分別方法\n\n【コード（延長コード類）】\n分別:小型家電\n【コードリール（ゴム・プラスチック製）】\n分別:不燃ごみ\n\n【コードリール（金属製）】\n分別:不燃ごみ\n18ℓ缶以上は粗大";
-      break;
-
     case /コーヒーメーカー/.test(message):
       returnMessage = "分別:小型家電\nガラス部分は不燃物。18ℓ以上は粗大";
       break;
@@ -739,8 +754,7 @@ case /カン/.test(message):
       break;
 
     case /琴/.test(message):
-      returnMessage =
-        "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
+      returnMessage = "分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:200円";
       break;
 
     case /三輪車/.test(message):
@@ -754,8 +768,7 @@ case /カン/.test(message):
       break;
 
     case /米びつ/.test(message):
-      returnMessage =
-        "分別:可燃ごみ\n持ち込み:無料  戸別収集手数料:500円";
+      returnMessage = "分別:可燃ごみ\n持ち込み:無料  戸別収集手数料:500円";
       break;
 
     case /米袋/.test(message):
@@ -799,8 +812,7 @@ case /カン/.test(message):
       break;
 
     case /座敷ぼうき/.test(message):
-      returnMessage =
-        "座敷ぼうきの分別方法\n\n分別:可燃ごみ\n60cm超は粗大";
+      returnMessage = "座敷ぼうきの分別方法\n\n分別:可燃ごみ\n60cm超は粗大";
       break;
 
     case /座卓/.test(message):
@@ -842,7 +854,7 @@ case /カン/.test(message):
       returnMessage = "サンダルの分別方法\n\n分別:可燃ごみ";
       break;
 
-    case /三段ボックス(カラーボックス)/.test(message):
+    case /三段ボックス/.test(message):
       returnMessage =
         "三段ボックス(カラーボックス)の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
       break;
@@ -857,22 +869,7 @@ case /カン/.test(message):
     case /シーツ/.test(message):
     case /掛布/.test(message):
     case /敷布/.test(message):
-      returnMessage =
-        "シーツ(掛布・敷布)の分別方法\n\n分別:資源化物\n古布";
-      break;
-
-    case /CD/.test(message):
-      returnMessage = "CDの分別方法\n\n分別:可燃ごみ\nLD・DVDも含む";
-      break;
-
-    case /CDラジカセ/.test(message):
-      returnMessage =
-        "CDラジカセの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大 200円";
-      break;
-
-    case /CDプレイヤー/.test(message):
-      returnMessage =
-        "CDプレイヤーの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大 200円";
+      returnMessage = "シーツ(掛布・敷布)の分別方法\n\n分別:資源化物\n古布";
       break;
 
     case /ジーンズ/.test(message):
@@ -887,13 +884,13 @@ case /カン/.test(message):
       returnMessage = "磁石の分別方法\n\n分別:不燃ごみ";
       break;
 
-    case /辞書・辞典/.test(message):
+    case /辞書/.test(message):
+    case /辞典/.test(message):
       returnMessage = "辞書・辞典の分別方法\n\n分別:資源化物\n古紙";
       break;
 
     case /下着類/.test(message):
-      returnMessage =
-        "下着類の分別方法\n\n分別:資源化物\n古布の出し方参照";
+      returnMessage = "下着類の分別方法\n\n分別:資源化物\n古布の出し方参照";
       break;
 
     case /室内用滑り台/.test(message):
@@ -906,21 +903,15 @@ case /カン/.test(message):
         "室内用洗濯物干しの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
       break;
 
-    case /自転車/.test(message):
-      returnMessage =
-        "自転車の分別方法\n\n【自転車(16インチ以下)】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円\n\n【自転車16インチ超】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円";
-      break;
-
     case /自転車のタイヤ/.test(message):
     case /自転車のチューブ/.test(message):
       returnMessage =
         "自転車のタイヤ・チューブの分別方法\n\n分別:可燃ごみ\n60cm以下に切ってだす。リムが付いたら粗大";
       break;
 
-    case /芝/.test(message):
-    case /芝生/.test(message):
+    case /自転車/.test(message):
       returnMessage =
-        "芝・芝生の分別方法\n\n分別:可燃ごみ\n有料袋に入れる";
+        "自転車の分別方法\n\n【自転車(16インチ以下)】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円\n\n【自転車16インチ超】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円";
       break;
 
     case /芝刈り機/.test(message):
@@ -928,17 +919,22 @@ case /カン/.test(message):
         "芝刈り機の分別方法\n\n【芝刈り機 エンジン】\n分別:出せないゴミ\nメーカー、販売店に相談\n\n【芝刈り機 手押し】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円\n\n【芝刈り機 電動】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円";
       break;
 
+    case /芝/.test(message):
+    case /芝生/.test(message):
+      returnMessage = "芝・芝生の分別方法\n\n分別:可燃ごみ\n有料袋に入れる";
+      break;
     case /シャープペンシル/.test(message):
       returnMessage =
         "シャープペンシルの分別方法\n\n【シャープペンシル 金属製】\n分別:不燃ごみ\n\n【シャープペンシル	プラスチック製】\n分別:可燃ごみ";
       break;
 
     case /ジャッキ/.test(message):
-      returnMessage =
-        "ジャッキの分別方法\n\n分別:出せないゴミ\n販売店に相談";
+      returnMessage = "ジャッキの分別方法\n\n分別:出せないゴミ\n販売店に相談";
       break;
 
-    case /写真・フィルム(ネガ)/.test(message):
+    case /写真/.test(message):
+    case /フィルム/.test(message):
+    case /ネガフィルム/.test(message):
       returnMessage = "写真・フィルム(ネガ)の分別方法\n\n分別:可燃ごみ";
       break;
 
@@ -946,12 +942,6 @@ case /カン/.test(message):
     case /ミキサー/.test(message):
       returnMessage =
         "ジューサー(ミキサー)の分別方法\n\n分別:小型家電\nガラス部分は不燃物、18ℓ缶以上は粗大";
-      break;
-
-    case /じゅうたん/.test(message):
-    case /カーペット/.test(message):
-      returnMessage =
-        "じゅうたん(カーペット)の分別方法\n\n【じゅうたん(カーペット) 60cm以下】\n分別:可燃ごみ\n\n【じゅうたん(カーペット)60cm超180cm以下】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
       break;
 
     case /柔道着/.test(message):
@@ -978,18 +968,9 @@ case /カン/.test(message):
         "障子戸(網戸を含む)の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
       break;
 
-    case /消臭スプレー空き缶/.test(message):
-      returnMessage =
-        "消臭スプレー空き缶の分別方法\n\n分別:資源化物\n空き缶の出し方参照";
-      break;
-
     case /照明器具/.test(message):
       returnMessage =
         "照明器具の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
-      break;
-
-    case /醤油のペットボトル/.test(message):
-      returnMessage = "醤油のペットボトルの分別方法\n\n分別:資源化物";
       break;
 
     case /除湿器/.test(message):
@@ -998,8 +979,7 @@ case /カン/.test(message):
       break;
 
     case /除湿剤/.test(message):
-      returnMessage =
-        "除湿剤の分別方法\n\n分別:可燃ごみ\n\n除草剤(スプレー缶)の分別方法\n\n分別:資源化物\n使い切って、穴をあけて出す 空き缶の出し方参照";
+      returnMessage = "除湿剤の分別方法\n\n分別:可燃ごみ";
       break;
 
     case /食器洗い乾燥機/.test(message):
@@ -1017,14 +997,13 @@ case /カン/.test(message):
         "食器棚の分別方法\n\n【食器棚 120cm以下】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:1000円\n\n【食器棚 120cm超】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:1500円";
       break;
 
-    case /シルバーガー/.test(message):
+    case /シルバーカー/.test(message):
       returnMessage =
-        "シルバーガーの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
+        "シルバーカーの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
       break;
 
     case /シンナー/.test(message):
-      returnMessage =
-        "シンナーの分別方法\n\n分別:出せないゴミ\n販売店に相談";
+      returnMessage = "シンナーの分別方法\n\n分別:出せないゴミ\n販売店に相談";
       break;
 
     case /新聞紙/.test(message):
@@ -1076,8 +1055,7 @@ case /カン/.test(message):
       break;
 
     case /スキー板/.test(message):
-      returnMessage =
-        "スキー板の分別方法\n\n分別:粗大ごみ\n2枚まで1組200円";
+      returnMessage = "スキー板の分別方法\n\n分別:粗大ごみ\n2枚まで1組200円";
       break;
 
     case /スキーストック/.test(message):
@@ -1099,8 +1077,7 @@ case /カン/.test(message):
       break;
 
     case /スクーター/.test(message):
-      returnMessage =
-        "スクーターの分別方法\n\n分別:出せないゴミ\n販売店に相談";
+      returnMessage = "スクーターの分別方法\n\n分別:出せないゴミ\n販売店に相談";
       break;
 
     case /スケート靴/.test(message):
@@ -1133,8 +1110,7 @@ case /カン/.test(message):
       break;
 
     case /ステッパー/.test(message):
-      returnMessage =
-        "ステッパー(家庭用足踏み器具)の分別方法\n\n分別:粗大ごみ";
+      returnMessage = "ステッパー(家庭用足踏み器具)の分別方法\n\n分別:粗大ごみ";
       break;
 
     case /ステレオセット/.test(message):
@@ -1189,7 +1165,11 @@ case /カン/.test(message):
       break;
 
     case /すべり台/.test(message):
-      returnMessage = "すべり台(幼児用)の分別方法\n\n分別:粗大ごみ";
+    case /室内用すべり台/.test(message):
+    case /滑り台/.test(message):
+    case /室内用滑り台/.test(message):
+      returnMessage =
+        "すべり台(幼児用)の分別方法\n\n分別:粗大ごみ\n室内用滑り台の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
       break;
 
     case /スポンジ/.test(message):
@@ -1252,8 +1232,7 @@ case /カン/.test(message):
       break;
 
     case /石膏像/.test(message):
-      returnMessage =
-        "石膏像の分別方法\n\n分別:不燃ごみ\n18ℓ缶以上は粗大";
+      returnMessage = "石膏像の分別方法\n\n分別:不燃ごみ\n18ℓ缶以上は粗大";
       break;
 
     case /石膏ボード/.test(message):
@@ -1306,8 +1285,7 @@ case /カン/.test(message):
     //そ行のゴミ
 
     case /双眼鏡/.test(message):
-      returnMessage =
-        "双眼鏡の分別方法\n\n分別:不燃ごみ\nプラスチック製は可燃";
+      returnMessage = "双眼鏡の分別方法\n\n分別:不燃ごみ\nプラスチック製は可燃";
       break;
 
     case /造花/.test(message):
@@ -1344,7 +1322,8 @@ case /カン/.test(message):
 
     //た行
     case /体温計/.test(message):
-      returnMessage = "体温計の分別方法\n\n【水銀あり】\n分別:資源化物\n電子式:小型家電";
+      returnMessage =
+        "体温計の分別方法\n\n【水銀あり】\n分別:資源化物\n電子式:小型家電";
       break;
 
     case /台車/.test(message):
@@ -1352,11 +1331,13 @@ case /カン/.test(message):
       break;
 
     case /体重計 /.test(message):
-      returnMessage = "体重計の分別方法\n\n【アナログ式】\n分別:不燃ごみ\nデジタル式:小型家電";
+      returnMessage =
+        "体重計の分別方法\n\n【アナログ式】\n分別:不燃ごみ\nデジタル式:小型家電";
       break;
 
     case /耐熱ガラス/.test(message):
-      returnMessage = "耐熱ガラスの分別方法\n\n分別:不燃ごみ\n新聞紙に包み、「危険」と書いて出す";
+      returnMessage =
+        "耐熱ガラスの分別方法\n\n分別:不燃ごみ\n新聞紙に包み、「危険」と書いて出す";
       break;
 
     case /タイヤ/.test(message):
@@ -1364,7 +1345,8 @@ case /カン/.test(message):
       break;
 
     case /タイル/.test(message):
-      returnMessage = "タイルの分別方法\n\n分別:不燃ごみ\n一般家庭から出たもののみ";
+      returnMessage =
+        "タイルの分別方法\n\n分別:不燃ごみ\n一般家庭から出たもののみ";
       break;
 
     case /タオル/.test(message):
@@ -1380,11 +1362,13 @@ case /カン/.test(message):
       break;
 
     case /高枝切りバサミ/.test(message):
-      returnMessage = "高枝切りバサミの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:500円";
+      returnMessage =
+        "高枝切りバサミの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:500円";
       break;
 
     case /卓上ミシン/.test(message):
-      returnMessage = "卓上ミシンの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円";
+      returnMessage =
+        "卓上ミシンの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円";
       break;
 
     case /竹馬/.test(message):
@@ -1409,11 +1393,13 @@ case /カン/.test(message):
       break;
 
     case /タッパー/.test(message):
-      returnMessage = "タッパーの分別方法\n\n分別:可燃ごみ\n金属製・アルミは不燃ごみ";
+      returnMessage =
+        "タッパーの分別方法\n\n分別:可燃ごみ\n金属製・アルミは不燃ごみ";
       break;
 
     case /立てず/.test(message):
-      returnMessage = "立てずの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円（180cm以下に切る）";
+      returnMessage =
+        "立てずの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円（180cm以下に切る）";
       break;
 
     case /卵の殻/.test(message):
@@ -1426,7 +1412,8 @@ case /カン/.test(message):
       break;
 
     case /たわし /.test(message):
-      returnMessage = "たわしの分別方法\n\n分別:ナイロン・ヤシ製:可燃ごみ\n金属製:不燃ごみ";
+      returnMessage =
+        "たわしの分別方法\n\n分別:ナイロン・ヤシ製:可燃ごみ\n金属製:不燃ごみ";
       break;
 
     case /単行本/.test(message):
@@ -1442,7 +1429,8 @@ case /カン/.test(message):
       break;
 
     case /たんす/.test(message):
-      returnMessage = " たんすの分別方法\n\n【120cm以下】\n分別:粗大ごみ\n戸別収集手数料:1000円\n120cm超:粗大ごみ\n戸別収集手数料:1500円";
+      returnMessage =
+        " たんすの分別方法\n\n【120cm以下】\n分別:粗大ごみ\n戸別収集手数料:1000円\n120cm超:粗大ごみ\n戸別収集手数料:1500円";
       break;
 
     //ち行
@@ -1460,7 +1448,8 @@ case /カン/.test(message):
       break;
 
     case /チャイルドシート/.test(message):
-      returnMessage = "チャイルドシートの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円";
+      returnMessage =
+        "チャイルドシートの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円";
       break;
 
     case /着火剤/.test(message):
@@ -1486,11 +1475,13 @@ case /カン/.test(message):
       break;
 
     case /調理台/.test(message):
-      returnMessage = "調理台の分別方法\n\n【90cm以下】\n分別:粗大ごみ\n戸別収集手数料:500円\n90cm超:粗大ごみ\n戸別収集手数料:1000円";
+      returnMessage =
+        "調理台の分別方法\n\n【90cm以下】\n分別:粗大ごみ\n戸別収集手数料:500円\n90cm超:粗大ごみ\n戸別収集手数料:1000円";
       break;
 
     case /貯米機/.test(message):
-      returnMessage = "貯米機の分別方法\n\n【ブリキ製のもの 10俵まで】\n分別:粗大ごみ\n1000円";
+      returnMessage =
+        "貯米機の分別方法\n\n【ブリキ製のもの 10俵まで】\n分別:粗大ごみ\n1000円";
       break;
 
     //つ行
@@ -1499,7 +1490,8 @@ case /カン/.test(message):
       break;
 
     case /使い捨てライター/.test(message):
-      returnMessage = "使い捨てライターの分別方法\n\n分別:粗大ごみ\n中身を使い切ってだす";
+      returnMessage =
+        "使い捨てライターの分別方法\n\n分別:粗大ごみ\n中身を使い切ってだす";
       break;
 
     case /杖/.test(message):
@@ -1525,7 +1517,8 @@ case /カン/.test(message):
       break;
 
     case /釣り竿/.test(message):
-      returnMessage = "釣り竿の分別方法\n\n分別:粗大ごみ\n【竹製】\n分別:可燃ごみ\n60cm以下に切る";
+      returnMessage =
+        "釣り竿の分別方法\n\n分別:粗大ごみ\n【竹製】\n分別:可燃ごみ\n60cm以下に切る";
       break;
 
     case /鉛/.test(message):
@@ -1534,23 +1527,28 @@ case /カン/.test(message):
 
     //て行
     case /DVDプレーヤー/.test(message):
-      returnMessage = " DVDプレーヤーの分別方法\n\n【:18ℓ缶未満】\n分別:小型家電\n【18ℓ缶以上】\n分別:粗大ごみ\n戸別収集手数料:200円";
+      returnMessage =
+        " DVDプレーヤーの分別方法\n\n【:18ℓ缶未満】\n分別:小型家電\n【18ℓ缶以上】\n分別:粗大ごみ\n戸別収集手数料:200円";
       break;
 
     case /テーブル/.test(message):
-      returnMessage = "テーブルの分別方法\n\n【90cm以下】\n分別:粗大ごみ\n戸別収集手数料:500円\n【90cm超】\n分別:粗大ごみ\n戸別収集手数料:1000円";
+      returnMessage =
+        "テーブルの分別方法\n\n【90cm以下】\n分別:粗大ごみ\n戸別収集手数料:500円\n【90cm超】\n分別:粗大ごみ\n戸別収集手数料:1000円";
       break;
 
     case /手押し芝刈り機/.test(message):
-      returnMessage = "手押し芝刈り機の分別方法\n\n分別:粗大ごみ\n戸別収集手数料:500円";
+      returnMessage =
+        "手押し芝刈り機の分別方法\n\n分別:粗大ごみ\n戸別収集手数料:500円";
       break;
 
     case /手さげ袋/.test(message):
-      returnMessage = "手さげ袋の分別方法\n\n分別:可燃ごみ\n使用可能な紙製、革製、布製のものは資源化物";
+      returnMessage =
+        "手さげ袋の分別方法\n\n分別:可燃ごみ\n使用可能な紙製、革製、布製のものは資源化物";
       break;
 
     case /デスクマット/.test(message):
-      returnMessage = "デスクマットの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円";
+      returnMessage =
+        "デスクマットの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円";
       break;
 
     case /鉄アレイ/.test(message):
@@ -1558,7 +1556,8 @@ case /カン/.test(message):
       break;
 
     case /鉄板/.test(message):
-      returnMessage = "鉄板の分別方法\n\n分別:粗大ごみ\n厚さ4ミリメートル以内のもの";
+      returnMessage =
+        "鉄板の分別方法\n\n分別:粗大ごみ\n厚さ4ミリメートル以内のもの";
       break;
 
     case /テニスボール/.test(message):
@@ -1566,7 +1565,8 @@ case /カン/.test(message):
       break;
 
     case /手袋/.test(message):
-      returnMessage = "手袋の分別方法\n\n分別:資源化物\n古布（布製でペアのもの）";
+      returnMessage =
+        "手袋の分別方法\n\n分別:資源化物\n古布（布製でペアのもの）";
       break;
 
     case /テレビ/.test(message):
@@ -1575,7 +1575,8 @@ case /カン/.test(message):
       break;
 
     case /テレビアンテナ/.test(message):
-      returnMessage = "テレビアンテナの分別方法\n\n分別:屋内用:小型家電\n屋外用・BS・CSを含む:粗大ごみ\n戸別収集手数料:500円";
+      returnMessage =
+        "テレビアンテナの分別方法\n\n分別:屋内用:小型家電\n屋外用・BS・CSを含む:粗大ごみ\n戸別収集手数料:500円";
       break;
 
     case /テレビ台/.test(message):
@@ -1602,7 +1603,8 @@ case /カン/.test(message):
       break;
 
     case /電気器具/.test(message):
-      returnMessage = "電気器具の分別方法\n\n分別:小型家電\nドライヤー、アイロン、ひげそり、電卓など";
+      returnMessage =
+        "電気器具の分別方法\n\n分別:小型家電\nドライヤー、アイロン、ひげそり、電卓など";
       break;
 
     case /電気コード/.test(message):
@@ -1611,11 +1613,13 @@ case /カン/.test(message):
       break;
 
     case /電気スタンド/.test(message):
-      returnMessage = "電気スタンドの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大";
+      returnMessage =
+        "電気スタンドの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大";
       break;
 
     case /電気ストーブ/.test(message):
-      returnMessage = "電気ストーブの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大";
+      returnMessage =
+        "電気ストーブの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大";
       break;
 
     case /電気ポット/.test(message):
@@ -1623,25 +1627,29 @@ case /カン/.test(message):
       break;
 
     case /電気毛布/.test(message):
-      returnMessage = "電気毛布の分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円";
+      returnMessage =
+        "電気毛布の分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円";
       break;
 
     case /電球/.test(message):
-      case /白熱球/.test(message):
-        case /白熱球/.test(message):
-          case /白熱電球/.test(message):
-            case /LED電球/.test(message):
-              case /LED/.test(message):
-      returnMessage = "電球の分別方法\n\n分別:不燃ごみ\n購入した時に包んである紙や箱に入れて出す";
+    case /白熱球/.test(message):
+    case /白熱球/.test(message):
+    case /白熱電球/.test(message):
+    case /LED電球/.test(message):
+    case /LED/.test(message):
+    case /豆電球/.test(message):
+      returnMessage =
+        "電球の分別方法\n\n分別:不燃ごみ\n購入した時に包んである紙や箱に入れて出す";
       break;
 
     case /電子オルガン/.test(message):
-      returnMessage = "電子オルガンの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:1500円";
+      returnMessage =
+        "電子オルガンの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:1500円";
       break;
 
-
     case /電子レンジ/.test(message):
-      returnMessage = "電子レンジの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:500円";
+      returnMessage =
+        "電子レンジの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:500円";
       break;
 
     case /電卓/.test(message):
@@ -1675,7 +1683,7 @@ case /カン/.test(message):
       break;
 
     case /砥石/.test(message):
-      case /といし/.test(message):
+    case /といし/.test(message):
       returnMessage = "砥石の分別方法\n\n分別:不燃ごみ";
       break;
 
@@ -1688,7 +1696,8 @@ case /カン/.test(message):
       break;
 
     case /道着/.test(message):
-      returnMessage = "道着の分別方法\n\n分別:資源化物\n古布 柔道・剣道等のもの";
+      returnMessage =
+        "道着の分別方法\n\n分別:資源化物\n古布 柔道・剣道等のもの";
       break;
 
     case /陶磁器類/.test(message):
@@ -1700,12 +1709,14 @@ case /カン/.test(message):
       break;
 
     case /灯油タンク/.test(message):
-      returnMessage = "灯油タンクの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円（18ℓ缶未満のものは可燃）";
+      returnMessage =
+        "灯油タンクの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円（18ℓ缶未満のものは可燃）";
       break;
 
     case /灯油のポンプ/.test(message):
     case /灯油ポンプ/.test(message):
-      returnMessage = "灯油ポンプの分別方法\n\n【電動式】\n分別:小型家電\n電池は資源化物";
+      returnMessage =
+        "灯油ポンプの分別方法\n\n【電動式】\n分別:小型家電\n電池は資源化物";
       break;
 
     case /トースター/.test(message):
@@ -1713,12 +1724,11 @@ case /カン/.test(message):
       break;
 
     case /時計/.test(message):
-case /腕時計/.test(message):
-case /置き時計/.test(message):
+    case /腕時計/.test(message):
+    case /置き時計/.test(message):
       returnMessage =
         "時計の分別方法\n\n【機械式】\n分別:不燃ごみ\n18ℓ缶以上は粗大\n【電気式】\n分別:小型家電\n18ℓ缶以上は粗大【置き時計】\n\n分別:小型家電\n電気式・電池式";
       break;
-  
 
     case /戸棚/.test(message):
       returnMessage =
@@ -1727,7 +1737,8 @@ case /置き時計/.test(message):
 
     case /トタン/.test(message):
     case /ブリキ/.test(message):
-      returnMessage = "トタンの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円（5枚まで1組）";
+      returnMessage =
+        "トタンの分別方法\n\n分別:粗大ごみ\n戸別収集手数料:200円（5枚まで1組）";
       break;
 
     case /土鍋/.test(message):
@@ -1750,18 +1761,6 @@ case /置き時計/.test(message):
       returnMessage = "塗料の分別方法\n\n分別:出せないごみ";
       break;
 
-    case /塗料空き缶/.test(message):
-    case /ペンキの空き缶/.test(message):
-    case /ペンキ缶/.test(message):
-      returnMessage = "塗料空き缶の分別方法\n\n分別:不燃ごみ";
-      break;
-
-    case /塗料スプレー空き缶/.test(message):
-    case /スプレー缶/.test(message):
-      returnMessage =
-        "塗料スプレー空き缶の分別方法\n\n分別:資源化物\n使い切って、穴を開ける 空き缶の出し方参照 https://www.city.okayama.jp/kurashi/0000005251.html";
-      break;
-
     //な行
     case /ナイフ/.test(message):
       returnMessage =
@@ -1778,6 +1777,13 @@ case /置き時計/.test(message):
         "長靴の分別方法\n \n分別:可燃ごみ  \n出し方: 長いものは60cm以下に切る";
       break;
 
+    case /靴/.test(message):
+    case /くつ/.test(message):
+    case /シューズ/.test(message):
+      returnMessage =
+        "靴類の分別方法\n\n【靴（革・布・ナイロン・合成皮革）】\n分別:可燃ごみ\n【安全靴】\n分別:可燃ごみ \n\n【運動靴】\n分別:可燃ごみ";
+      break;
+
     case /流し台/.test(message):
       returnMessage =
         "流し台(流し台90cm以下)の分別方法\n \n分別:粗大ごみ \n金額: 500円 \n流し台(流し台90cm超) \n分別: 粗大ごみ \n金額1000円";
@@ -1785,7 +1791,7 @@ case /置き時計/.test(message):
 
     case /なべ/.test(message):
     case /鍋」/.test(message):
- case /鋳物鍋」/.test(message):
+    case /鋳物鍋」/.test(message):
       returnMessage =
         "なべ(金属製)の分別方法\n \n分別:不燃ごみ \n出し方: 18ℓ缶以上は粗大ゴミで出してください。\n\n【鋳物鍋】\n分別:不燃ごみ";
       break;
@@ -1848,11 +1854,6 @@ case /置き時計/.test(message):
       returnMessage = "寝袋の分別方法\n \n分別:粗大ごみ ";
       break;
 
-    case /ネット/.test(message):
-      returnMessage =
-        "ネット(60cm以下)の分別方法\n \n分別:可燃ごみ \n出し方: 家庭菜園、くだもの用などが可 \nネット(60cm超)の分別方法 \n分別: 粗大ごみ \n出し方 1辺の長さ60cm以下にできる場合は、可燃ごみでも可";
-      break;
-
     case /粘土/.test(message):
       returnMessage =
         "粘土の分別方法\n \n分別:不燃ごみ \n出し方: 家庭工作用のみです。 ";
@@ -1869,25 +1870,11 @@ case /置き時計/.test(message):
         "ネガフィルムの分別方法\n \n分別:出せないごみ \n出し方: 販売店か、取扱店へ相談 ";
       break;
 
-    case /農薬/.test(message):
-      returnMessage =
-        "農薬の分別方法\n \n分別:出せないごみ \n出し方: 販売店か、取扱店へ相談 ";
-      break;
-
     case /のこぎり/.test(message):
     case /ノコギリ/.test(message):
     case /鋸/.test(message):
       returnMessage =
         "のこぎり(60cm以下)の分別方法\n \n分別:不燃ごみ \nのこぎり(60cm超) \n出し方: 粗大ごみ \n のこぎり(電動)の分別方法 \n分別: 粗大ごみ ";
-      break;
-
-    case /海苔の空きびん/.test(message):
-    case /のりの空きびん/.test(message):
-    case /海苔の空きびん/.test(message):
-    case /海苔の空き瓶/.test(message):
-    case /海苔の空きビン/.test(message):
-      returnMessage =
-        "海苔の空きびんの分別方法\n \n分別:資源化物 \n出し方: プラスチック製のふたは可燃ごみで出して、金属製のふたは不燃ごみで出してください ";
       break;
 
     case /ノンカーボン紙/.test(message):
@@ -1917,12 +1904,12 @@ case /置き時計/.test(message):
         "バイクの分別方法\n\n分別:出せないごみ:販売店か、取扱店へ相談";
       break;
 
-    case /バインダー/.test(message):    
+    case /バインダー/.test(message):
       returnMessage =
         "バインダーの分別方法\n\n【紙製】\n分別:資源化物:（古紙）金具は不燃ごみにだす\n\n【プラスチック製】\n分別:可燃ごみ:金具は不燃ごみにだす";
       break;
 
-    case /廃油/.test(message):    
+    case /廃油/.test(message):
       returnMessage =
         "廃油（エンジンオイル等）の分別方法\n\n分別:出せないごみ:販売店か、取扱店へ相談";
       break;
@@ -1936,7 +1923,7 @@ case /置き時計/.test(message):
         "はかり（台所用等）の分別方法\n\n【アナログ式】\n分別:不燃ごみ:18ℓ缶以上は粗大\n\n【デジタル式】\n分別:小型家電:18ℓ缶以上は粗大";
       break;
 
-    case /発炎筒/.test(message):    
+    case /発炎筒/.test(message):
       returnMessage =
         "発炎筒の分別方法\n\n【発炎筒（未使用）】\n分別:出せないごみ:販売店か、取扱店へ相談\n\n【発炎筒（使用済】\n分別:可燃ごみ";
       break;
@@ -1953,7 +1940,7 @@ case /置き時計/.test(message):
       returnMessage = "はさみの分別方法\n\n分別:不燃ごみ";
       break;
 
-    case /はしご/.test(message):    
+    case /はしご/.test(message):
     case /梯子/.test(message):
     case /梯/.test(message):
       returnMessage = "はしごの分別方法\n\n分別:粗大ごみ";
@@ -1971,12 +1958,6 @@ case /置き時計/.test(message):
     case /パソコンラック/.test(message):
       returnMessage =
         "パソコン関連の分別方法\n\n【パソコン（PCリサイクルマークあり）】分別:出せないごみ\n各メーカーへ問い合わせる\n\n【パソコン（PCリサイクルマークなし）デスクトップのみ】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:500円\n\n【パソコン（PCリサイクルマークなし）ノート型（35cm未満）】\n分別:小型家電\n持ち込み:無料\n 戸別収集手数料:500円・18ℓ缶以上は粗大ごみ\n\n【パソコン キーボードのみ】\n分別:小型家電\n協力店舗に持ち込む\n\n【パソコン マウスのみ】\n分別:小型家電\n協力店舗に持ち込む\n【パソコン モニター（CRT・液晶）】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:500円\n【パソコン 中身の機械】\n分別:小型家電\n協力店舗に持ち込む\n\n【パソコンプリンター】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円\n【パソコンラック】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:粗大ごみ受付センターで金額を確認";
-      break;
-
-    case /鉢/.test(message):
-    case /針金/.test(message):
-      returnMessage =
-        "鉢の分別方法\n\n【プラスチック製】\n分別:可燃ごみ:18ℓ缶以上は粗大\n\n【素焼き、陶磁器】\n分別:不燃ごみ:18ℓ缶以上は粗大\n\n【針金】\n分別:不燃ごみ";
       break;
 
     case /パチンコ台/.test(message):
@@ -2010,7 +1991,7 @@ case /置き時計/.test(message):
       returnMessage = "バドミントンのラケットの分別方法\n\n分別:不燃ごみ";
       break;
 
-    case /花/.test(message):    
+    case /花/.test(message):
       returnMessage =
         "花の分別方法\n\n分別:可燃ごみ:庭に生えた自然発生的な彼岸花、コスモスなどは、無料収集。";
       break;
@@ -2068,11 +2049,11 @@ case /置き時計/.test(message):
 
     case /Pタイル/.test(message):
     case /プラスチックタイル/.test(message):
-          returnMessage = "プラスチックタイルの分別方法\n\n分別:可燃ごみ";
+      returnMessage = "プラスチックタイルの分別方法\n\n分別:可燃ごみ";
       break;
 
     case /ビー玉/.test(message):
-    case /ビーダマ/.test(message):    
+    case /ビーダマ/.test(message):
       returnMessage =
         "ビー玉の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:500円";
       break;
@@ -2081,15 +2062,6 @@ case /置き時計/.test(message):
       returnMessage =
         "ビーチパラソルの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:粗大ごみ受付センターで金額などを確認。";
       break;
-
-    
-
-    case /ピクニックテーブル/.test(message):
-      returnMessage =
-        "ピクニックテーブルの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円";
-      break;
-
-  
 
     case /ビデオ/.test(message):
       returnMessage =
@@ -2106,7 +2078,7 @@ case /置き時計/.test(message):
         "ビニールの分別方法\n\n【ビニールシート】\n分別:可燃ごみ\n1辺の長さ60cm以下に切り有料指定袋に入れて出す\n\n【ビニール袋】\n分別:可燃ごみ";
       break;
 
-    case /火鉢/.test(message):   
+    case /火鉢/.test(message):
       returnMessage =
         "火鉢の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:粗大ごみ受付センターで金額などを確認してください。18リットル缶以上は粗大ごみ。";
       break;
@@ -2146,7 +2118,7 @@ case /置き時計/.test(message):
       returnMessage = "フィルムの分別方法\n\n分別:可燃ごみ";
       break;
 
-    case /封筒/.test(message): 
+    case /封筒/.test(message):
       returnMessage = "封筒の分別方法\n\n分別:資源化物";
       break;
 
@@ -2154,32 +2126,28 @@ case /置き時計/.test(message):
       returnMessage = "ブーツの分別方法\n\n分別:可燃ごみ";
       break;
 
-   
     case /襖/.test(message):
       returnMessage =
         "ふすまの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円";
       break;
 
-    
     case /蓋/.test(message):
       returnMessage =
         "ふたの分別方法\n\n【ふた プラスチック製】\n分別:可燃ごみ\n\n【ふた 金属製】\n分別:不燃ごみ";
       break;
 
     case /仏壇/.test(message):
-    case /仏具/.test(message):    
-      returnMessage =
-        "仏壇の分別方法\n\n分別:出せないごみ\n販売店へ相談";
+    case /仏具/.test(message):
+      returnMessage = "仏壇の分別方法\n\n分別:出せないごみ\n販売店へ相談";
       break;
 
-    case /布団/.test(message):    
+    case /布団/.test(message):
       returnMessage =
         "布団の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円\n\n【ふとんカバー】\n分別:資源化物\n十字に縛って出す\n\n【羽毛布団】\n分別:粗大ごみ\n他の布団と分け、ひもで十字に縛って出す\n\n【布団乾燥機】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円";
       break;
 
     case /フライパン/.test(message):
-      returnMessage =
-        "フライパンの分別方法\n\n分別:不燃ごみ\n18ℓ缶以上は粗大";
+      returnMessage = "フライパンの分別方法\n\n分別:不燃ごみ\n18ℓ缶以上は粗大";
       break;
 
     case /ブラインド/.test(message):
@@ -2229,18 +2197,12 @@ case /置き時計/.test(message):
       returnMessage = "フロッピーディスクの分別方法\n\n分別:可燃ごみ";
       break;
 
-    case /風呂ふた/.test(message):
-    case /風呂蓋/.test(message):
-      returnMessage =
-        "風呂ふたの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円\n\n【風呂マット 60cm以下】\n分別:可燃ごみ\n\n【風呂マット 60cm超180cm以下】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円";
-      break;
-
     case /ブロック/.test(message):
       returnMessage =
         "ブロックの分別方法\n\n【ブロック（おもちゃ）】\n分別:可燃ごみ\n\n【ブロック（コンクリート）】\n分別:出せないごみ\n販売店に相談";
       break;
 
-    case /文鎮/.test(message):   
+    case /文鎮/.test(message):
       returnMessage = "の分別方法\n\n分別:不燃ごみ";
       break;
 
@@ -2261,11 +2223,6 @@ case /置き時計/.test(message):
         "ペット用品の分別方法\n\n【ペットフードの空き缶】\n分別:資源化物\n缶のふたも資源化物\n\n【ペット用の砂（プラスチック製）】\n分別:可燃ごみ\n\n【ペット用かご又は小屋（90cm以下）】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:500円\n\n【ペット用かご又は小屋（90cm超150cm以下）】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1000円\n\n【ペット用かご又は小屋（分解された150cm超のもの）】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:2500円\n\n【ペット用トイレマット】\n分別:可燃ごみ";
       break;
 
-    case /ベッド/.test(message):
-      returnMessage =
-        "ベッドの分別方法\n\n【ベッド 介護用以外のもの・マットレスを除く】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1000円\n\n【ベッド ソファーベッド】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1000円\n\n【ベッド 介護用・マットレスを除く】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1500円（分解されたもの）\n\n【ベッド スプリング入りベッドマットレス】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:2500円\n\n【パイプベッド】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1000円";
-      break;
-
     case /ベビーグッズ/.test(message):
     case /ベビー用品/.test(message):
       returnMessage =
@@ -2283,8 +2240,7 @@ case /置き時計/.test(message):
       break;
 
     case /ベルト/.test(message):
-      returnMessage =
-        "ベルトの分別方法\n\n分別:可燃ごみ\n金具部分は不燃";
+      returnMessage = "ベルトの分別方法\n\n分別:可燃ごみ\n金具部分は不燃";
       break;
 
     case /ヘルメット/.test(message):
@@ -2303,8 +2259,7 @@ case /置き時計/.test(message):
       break;
 
     case /ベンジン/.test(message):
-      returnMessage =
-        "ベンジンの分別方法\n\n分別:出せないごみ\n販売店へ相談";
+      returnMessage = "ベンジンの分別方法\n\n分別:出せないごみ\n販売店へ相談";
       break;
 
     case /ペンチ/.test(message):
@@ -2324,8 +2279,7 @@ case /置き時計/.test(message):
       break;
 
     case /ボール紙/.test(message):
-      returnMessage =
-        "ボール紙（菓子箱など）の分別方法\n\n分別:資源化物\n古紙";
+      returnMessage = "ボール紙（菓子箱など）の分別方法\n\n分別:資源化物\n古紙";
       break;
 
     case /ボールペン/.test(message):
@@ -2343,13 +2297,11 @@ case /置き時計/.test(message):
 
     case /ホイール/.test(message):
     case /タイヤ/.test(message):
-      returnMessage =
-        "/ホイールの分別方法\n\n分別:出せないごみ\n販売店へ相談";
+      returnMessage = "/ホイールの分別方法\n\n分別:出せないごみ\n販売店へ相談";
       break;
 
     case /望遠鏡/.test(message):
-      returnMessage =
-        "望遠鏡の分別方法\n\n分別:不燃ごみ\n18ℓ缶以上は粗大ごみ";
+      returnMessage = "望遠鏡の分別方法\n\n分別:不燃ごみ\n18ℓ缶以上は粗大ごみ";
       break;
 
     case /帽子/.test(message):
@@ -2417,13 +2369,6 @@ case /置き時計/.test(message):
     case /哺乳ビン/.test(message):
       returnMessage =
         "ほ乳ビン製の分別方法\n\n【ほ乳ビン プラスチック製】\n分別:可燃ごみ\n\n【ほ乳ビン ガラス製】\n分別:不燃ごみ";
-      break;
-
-    case /ポリタンク/.test(message):  
-    case /ポリバケツ/.test(message):
-　case /ポリ容器/.test(message):
-      returnMessage =
-        "ポリバケツの分別方法\n\n【18ℓ缶未満】\n分別:可燃ごみ\n\n【18ℓ缶以上】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円";
       break;
 
     case /保冷剤/.test(message):
@@ -2507,10 +2452,6 @@ case /置き時計/.test(message):
       returnMessage = "マニキュアの瓶の分別方法\n\n分別:不燃ごみ";
       break;
 
-    case /豆電球/.test(message):
-      returnMessage = "豆電球の分別方法\n\n分別:不燃ごみ";
-      break;
-
     case /漫画本/.test(message):
     case /まんが本/.test(message):
     case /漫画/.test(message):
@@ -2527,12 +2468,6 @@ case /置き時計/.test(message):
     case /ミシン/.test(message):
       returnMessage =
         "ミシンの分別方法\n\n【ミシン（卓上用）】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:200円\n\n【ミシン（卓上ミシンを除く）\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1000円";
-      break;
-
-    case /水枕/.test(message):
-    case /氷枕/.test(message):
-      returnMessage =
-        "水枕（氷枕）の分別方法\n\n分別:可燃ごみ:ゴム製品";
       break;
 
     case /ミニコンポセット/.test(message):
@@ -2635,7 +2570,6 @@ case /置き時計/.test(message):
       returnMessage = "屋根瓦の分別方法\n \n分別:出せないごみ";
       break;
 
-    
     //ゆ行
     case /ゆたんぽ/.test(message):
       returnMessage =
@@ -2645,10 +2579,11 @@ case /置き時計/.test(message):
     case /タンス/.test(message):
     case /箪笥/.test(message):
     case /たんす/.test(message):
-　case /クローゼット/.test(message):
-　case /洋服タンス/.test(message):
-case /ローチェスト/.test(message):
-      returnMessage = "洋服タンスの分別方法\n \n分別:粗大ごみ\n\n 【ローチェスト】の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:粗大ごみ受付センターで金額などを確認\n\n";
+    case /クローゼット/.test(message):
+    case /洋服タンス/.test(message):
+    case /ローチェスト/.test(message):
+      returnMessage =
+        "タンスの分別方法\n \n分別:粗大ごみ\n\n 【ローチェスト】の分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:粗大ごみ受付センターで金額などを確認\n\n";
       break;
     //よ行
     case /浴槽/.test(message):
@@ -2740,15 +2675,16 @@ case /ローチェスト/.test(message):
       break;
 
     //れ行
-    case /レーザーディスク/.test(message):
-      returnMessage = "レーザーディスクの分別方法\n\n分別:可燃ごみ";
-      break;
 
     case /レーザーディスクプレイヤー/.test(message):
     case /LDプレイヤー/.test(message):
     case /ldプレイヤー/.test(message):
       returnMessage =
         "レーザーディスクプレイヤーの分別方法\n\n分別:小型家電\n18ℓ缶以上は粗大ごみ";
+      break;
+
+    case /レーザーディスク/.test(message):
+      returnMessage = "レーザーディスクの分別方法\n\n分別:可燃ごみ";
       break;
 
     case /冷蔵庫/.test(message):
@@ -2811,8 +2747,7 @@ case /ローチェスト/.test(message):
       break;
 
     case /ロープ/.test(message):
-      returnMessage =
-        "ロープの分別方法\n\n分別:可燃ごみ\n60cmに切って出す";
+      returnMessage = "ロープの分別方法\n\n分別:可燃ごみ\n60cmに切って出す";
       break;
 
     case /ローラースケート/.test(message):
@@ -2831,22 +2766,19 @@ case /ローチェスト/.test(message):
       break;
 
     //ワ行
-    case /ワープロ/.test(message):
-      returnMessage =
-        "ワープロ（ノート型）の分別方法\n \n分別:小型家電 \nワープロ（ノート型以外）\n \n分別: 粗大ごみ\n \n金額 持ち込み:無料  戸別収集手数料:200円";
-      break;
 
     case /ワープロ用インクリボン/.test(message):
       returnMessage = "ワープロ用インクリボンの分別方法\n \n分別:可燃ごみ";
       break;
 
+    case /ワープロ/.test(message):
+      returnMessage =
+        "ワープロ（ノート型）の分別方法\n \n分別:小型家電 \nワープロ（ノート型以外）\n \n分別: 粗大ごみ\n \n金額 持ち込み:無料  戸別収集手数料:200円";
+      break;
+
     case /ワイシャツ/.test(message):
       returnMessage =
         "ワイシャツの分別方法\n \n分別:資源化物 \n出し方: 古布(ひとまとめにし、透明又は半透明の袋に入れて出してください。（有料指定袋で出す必要はありません）";
-      break;
-
-    case /ワイヤーハンガー/.test(message):
-      returnMessage = "ワイヤーハンガーの分別方法\n \n分別:不燃ごみ";
       break;
 
     case /ワインセラー/.test(message):
@@ -2878,6 +2810,69 @@ case /ローチェスト/.test(message):
         "割れたビンの分別方法\n \n分別:不燃ごみ　\n出し方: 新聞紙等に包み「危険」と書いて出してください。";
       break;
 
+    //優先順位下
+    case /油/.test(message):
+      returnMessage =
+        "油の分別方法\n\n【機械用】\n分別:出せないごみ\n販売店に相談\n\n【食用(使用済)】\n分別:資源化物\n出し方:\nこして冷ました後、ペットボトルに入れキャップをしっかり締め、てんぷら油回収容器に立てて入れる\n\n【食用(未使用・未開封・賞味期限切れ等)】\n分別:資源化物\n出し方:\n缶やポリ容器の油は、開封せずそのまま出してください\n\n【食用(凝固剤で固めたもの)】\n分別:可燃ごみ";
+      break;
+
+    case /IHクッキングヒーター/.test(message):
+    case /ガスコンロ/.test(message):
+    case /ヒーター/.test(message):
+      returnMessage =
+        "IHクッキングヒーターの分別方法\n\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:500円\n\n【ガスコンロ】\n分別:不燃ごみ\n\n【オイルヒーター】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:500円";
+      break;
+
+    case /鏡/.test(message):
+    case /ミラー/.test(message):
+    case /手鏡/.test(message):
+      returnMessage =
+        "鏡の分別方法\n\n【鏡（鏡台用）】\n分別:粗大ごみ\n出し方:\n保留\n\n【手鏡】\n分別:不燃ごみ\n出し方:\n保留\n\n【アコーディオンカーテン（レール込み）】\n分別:粗大ゴミ\n出し方:\n保留";
+      break;
+
+    case /カーテン/.test(message):
+      returnMessage =
+        "カーテンの分別方法\n\n【カーテン】\n分別:資源化物\n出し方:\nああ\n\n【カーテン（レース）】\n分別:資源化物\n出し方:\nあとで\n\n【アコーディオンカーテン（レール込み）】\n分別:粗大ゴミ\n出し方:\nあとで";
+      break;
+
+    case /ガラス/.test(message):
+      returnMessage =
+        "ガラスの分別方法\n\n【ガラスくず】\n分別:不燃ごみ\n出し方:\n新聞紙等で包み、「危険」と書いてだす\n\n【ガラス食器】\n分別:不燃ごみ\n出し方:\n新聞紙等で包む\n\n【ガラス戸】\n分別:粗大ごみ\n持ち込み:無料  戸別収集手数料:500円";
+      break;
+
+    case /コード/.test(message):
+      returnMessage =
+        "コード・コードリールの分別方法\n\n【コード（延長コード類）】\n分別:小型家電\n【コードリール（ゴム・プラスチック製）】\n分別:不燃ごみ\n\n【コードリール（金属製）】\n分別:不燃ごみ\n18ℓ缶以上は粗大";
+      break;
+
+    case /じゅうたん/.test(message):
+    case /カーペット/.test(message):
+      returnMessage =
+        "じゅうたん(カーペット)の分別方法\n\n【じゅうたん(カーペット) 60cm以下】\n分別:可燃ごみ\n\n【じゅうたん(カーペット)60cm超180cm以下】\n分別:粗大ごみ\n持ち込み:無料\n戸別収集手数料:200円";
+      break;
+
+    case /鉢/.test(message):
+    case /針金/.test(message):
+      returnMessage =
+        "鉢の分別方法\n\n【プラスチック製】\n分別:可燃ごみ:18ℓ缶以上は粗大\n\n【素焼き、陶磁器】\n分別:不燃ごみ:18ℓ缶以上は粗大\n\n【針金】\n分別:不燃ごみ";
+      break;
+
+    case /瓶/.test(message):
+    case /ビン/.test(message):
+    case /酒びん/.test(message):
+      returnMessage =
+        "空き瓶の分別方法\n\n【食油】\n分別:不燃ごみ\n中身がない状態にして出す　※資源にはならない\n\n【化粧品】\n分別:資源化物\n出し方:\n乳白色のものは不燃\n\n【食料品】\n分別:資源化物\n出し方:\nウイスキーの瓶、梅酒の瓶、インスタントコーヒーの瓶なども該当します。日本酒などの瓶はできるだけ買ったお店に返してください\n\n【劇薬】\n分別:不燃ごみ\n中身が無い状態にして出す ※資源にはならない\n\n【酒びん(日本酒)】\n分別:資源化物\n販売店に返す 資源化物ステーションにも出せます";
+      break;
+
+    case /ベッド/.test(message):
+      returnMessage =
+        "ベッドの分別方法\n\n【ベッド 介護用以外のもの・マットレスを除く】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1000円\n\n【ベッド ソファーベッド】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1000円\n\n【ベッド 介護用・マットレスを除く】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1500円（分解されたもの）\n\n【ベッド スプリング入りベッドマットレス】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:2500円\n\n【パイプベッド】\n分別:粗大ごみ\n持ち込み:無料\n 戸別収集手数料:1000円";
+      break;
+
+    case /ネット/.test(message):
+      returnMessage =
+        "ネット(60cm以下)の分別方法\n \n分別:可燃ごみ \n出し方: 家庭菜園、くだもの用などが可 \nネット(60cm超)の分別方法 \n分別: 粗大ごみ \n出し方 1辺の長さ60cm以下にできる場合は、可燃ごみでも可";
+      break;
     //なにもマッチしなかった場合
     default:
       returnMessage = "何もマッチしなかった場合のメッセージ";
@@ -2885,4 +2880,3 @@ case /ローチェスト/.test(message):
   }
   return returnMessage;
 }
-
