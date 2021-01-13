@@ -15,16 +15,13 @@ function History(props) {
 
   const [historyData, setHistoryData] = useState([]);
   let tmp = [];
-  // let historyData = [];
   let flg = true;
   useEffect(() => {
     if (flg) {
       storage
         .load({ key: "messages" })
         .then((res) => {
-          console.log(res);
           const messages = res;
-          console.log(messages.length);
           let i, j, a, q, date;
           j = 0;
           for(i = 0; i < messages.length; i++) {
@@ -35,10 +32,9 @@ function History(props) {
               date = date.split('T')[0];
               date = date.split('-');
               date = date[0]+"年"+date[1]+"月"+date[2]+"日";
-              console.log(date);
             }else {
               a = messages[i].text;
-              if(a=="何もマッチしなかった場合のメッセージ"){
+              if(a=="メッセージが正しくありません。\nもう一度入力してください"){
                 continue;
               }
               tmp[j] = {
@@ -52,7 +48,6 @@ function History(props) {
               j++;
             }
           }
-          console.log(tmp);
           setHistoryData(tmp);
         })
         .catch((err) => console.warn(err));

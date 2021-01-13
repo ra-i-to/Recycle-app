@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dimensions,
   StyleSheet,
@@ -11,6 +11,7 @@ import { Button} from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
 import createReturnMessage from "../functions/GarbageBranch";
+import base64 from 'react-native-base64'
 
 function Chat(props) {
   const storage = props.screenProps;
@@ -42,6 +43,14 @@ function Chat(props) {
   });
 
   const [messages, setMessages] = useState([]);
+  setInterval(() => {
+    storage
+      .load({ key: "messages" })
+      .then((res) => {
+        setMessages(res);
+      })
+      .catch((err) => console.warn(err));
+  },1000)
   let flg = true;
   if (flg) {
     storage
@@ -73,7 +82,6 @@ function Chat(props) {
         setMessages(res);
       })
       .catch((err) => console.warn(err));
-    // await sleep(1000);
     storage
       .load({ key: "messages" })
       .then((res) => {
@@ -213,39 +221,8 @@ function Chat(props) {
       fontWeight: "bold",
       marginRight: 8,
       fontSize: 12,
-      // transform: [{ translateY: -5 }],
     },
   });
-// //Cloud Vision Test
-// //-------------------------------------------------------------------------------------------------
-//   async function testFunc() {
-//     const image = require('../assets/test.jpg');
-//                 const body = JSON.stringify({
-//                 requests: [
-//                   {
-//                     features: [{ type: "TEXT_DETECTION", maxResults: 1 }],
-//                     photo: {
-//                       content: image
-//                     }
-//                   }
-//                 ]
-//               });
-//               const response = await fetch(
-//                 "https://vision.googleapis.com/v1/images:annotate?key=" +
-//                   "---APIKEY---",
-//                 {
-//                   headers: {
-//                     Accept: "application/json",
-//                     "Content-Type": "application/json"
-//                   },
-//                   method: "POST",
-//                   body: body
-//                 }
-//               );
-//               const resJson = await response.json();
-//               console.log(resJson);
-//               // console.log(resJson.responses[0].textAnnotations[0].description);
-//   }
 
   return (
     <View style={styles.container}>
@@ -296,6 +273,7 @@ function Chat(props) {
           }}
         >
           <View style={displayMessagesAreaStyle}>
+          {/* ストレージリセットボタン（デバッグ用） */}
             <Button
               style={{
                 width: 120,
@@ -312,7 +290,6 @@ function Chat(props) {
                 storage.load({ key: "messages" }).then((res) => {
                   setMessages(res);
                 });
-                // testFunc();
               }}
             />
             <ScrollView>
@@ -399,7 +376,6 @@ function Chat(props) {
                     name="paper-plane"
                     size={16}
                     color="#555"
-                    // style={[{ transform: [{ translateY: -5 }] }]}
                   />
                 }
                 iconRight

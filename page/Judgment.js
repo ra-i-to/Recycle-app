@@ -10,7 +10,7 @@ import {
 from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function Judgment() {
+export default function Judgment(props) {
   const styles = StyleSheet.create({
     loader: {
       flex: 1,

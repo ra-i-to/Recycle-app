@@ -1,6 +1,14 @@
 {
     "configurations": [
         {
+            "name": "Attach to packager",
+            "cwd": "${workspaceFolder}",
+            "type": "reactnative",
+            "request": "attach"
+        },
+
+
+        {
             "type": "aws-sam",
             "request": "direct-invoke",
             "name": "react-native:page/Judgment.Judgment (nodejs12.x)",
